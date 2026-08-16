@@ -118,9 +118,9 @@ export const mockGroups: Group[] = [
 ];
 
 export const mockUsers: User[] = Array.from({ length: 64 }, (_, i) => {
-  const first = firstNames[i % firstNames.length];
-  const last = lastNames[seeded(i + 3, lastNames.length)];
-  const department = departments[seeded(i + 7, departments.length)];
+  const first = firstNames[i % firstNames.length]!;
+  const last = lastNames[seeded(i + 3, lastNames.length)]!;
+  const department = departments[seeded(i + 7, departments.length)]!;
   const aiAccess = i % 3 !== 2 && department !== "Support";
   const risk: User["risk"] = i % 11 === 0 ? "high" : i % 4 === 0 ? "medium" : "low";
   const review: User["review"] = i % 7 === 0 ? "pending" : "reviewed";
@@ -144,7 +144,7 @@ export const mockUsers: User[] = Array.from({ length: 64 }, (_, i) => {
 
 // Ensure the headline demo users exist with stable identities.
 mockUsers[0] = {
-  ...mockUsers[0],
+  ...mockUsers[0]!,
   name: "Arun Sharma",
   email: "arun@company.com",
   department: "Sales",
@@ -155,7 +155,7 @@ mockUsers[0] = {
   review: "pending",
 };
 mockUsers[1] = {
-  ...mockUsers[1],
+  ...mockUsers[1]!,
   name: "Priya Nair",
   email: "priya@company.com",
   department: "Management",
@@ -166,7 +166,7 @@ mockUsers[1] = {
   review: "reviewed",
 };
 mockUsers[2] = {
-  ...mockUsers[2],
+  ...mockUsers[2]!,
   name: "Meera Iyer",
   email: "meera@company.com",
   department: "Legal",
